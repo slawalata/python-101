@@ -1,15 +1,15 @@
-# Both of side aware of each other.
-# Newspaper Shelve has (and aware of) Library
+# Library 1 -----> 0..* NewspaperShelve
 # Library has (and aware of) Newspaper Shelve
+# pictured with an arrow
 
 class NewsPaperShelve:
-    def __init__(self, library):
-        self.code = "001"
-        self.library = library
+    def __init__(self, id):
+        self.id = id
 
 
 class Library:
-    newsPaperShelves = []
+    def __init__(self):
+        self.newsPaperShelves = []
 
     def add(self, shelves):
         self.newsPaperShelves.append(shelves)
@@ -18,8 +18,8 @@ class Library:
 if __name__ == '__main__':
     library = Library()
 
-    kompasShelves = NewsPaperShelve(library)
-    suaraPembaruan = NewsPaperShelve(library)
+    kompasShelves = NewsPaperShelve("KMP")
+    suaraPembaruanShelve = NewsPaperShelve("SP")
 
     library.add(kompasShelves)
     library.add(kompasShelves)

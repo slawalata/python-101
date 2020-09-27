@@ -12,6 +12,9 @@ class BookShelve:
             self.capacity
         )
 
+    def addBook(self, book):
+        pass
+
 
 if __name__ == "__main__":
     common_shelve = BookShelve(1, "000")
