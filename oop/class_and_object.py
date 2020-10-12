@@ -1,20 +1,4 @@
-class BookShelve:
-
-    def __init__(self, id, book_type):
-        self.id = id
-        self.book_type = book_type
-        self.capacity = 50
-
-    def __str__(self):
-        return "BookShelve(id={},book type={}, capacity={}".format(
-            self.id,
-            self.book_type,
-            self.capacity
-        )
-
-    def addBook(self, book):
-        pass
-
+from oop.library import BookShelve
 
 if __name__ == "__main__":
     common_shelve = BookShelve(1, "000")
@@ -30,5 +14,7 @@ if __name__ == "__main__":
 
     if type(common_shelve) == type(religion_shelve):
         print("They have the same class type")
+        print(type(common_shelve))
     else:
         print("They have different class type")
+
