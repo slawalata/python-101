@@ -1,0 +1,33 @@
+from oop.library import BookShelve
+from oop.library import Book
+
+if __name__ == '__main__':
+    pemuda_dan_krisis_jaman = Book("isbn_1234", "Pemuda dan krisis jaman", "001")
+
+    # print(pemuda_dan_krisis_jaman.title)
+
+    pemuda_dan_krisis_jaman.title = "Pemuda tanpa krisis"
+    # print(pemuda_dan_krisis_jaman.title)
+
+    ## how can we block user to change title directly?
+    # print(pemuda_dan_krisis_jaman.is_lent)
+
+    # pemuda_dan_krisis_jaman.is_lent = "belum dikembaliin lama banget"
+    # print(pemuda_dan_krisis_jaman.is_lent)
+
+    ## how can we ensure that data is set with a right data?
+    # pemuda_dan_krisis_jaman.set_lent("belum")
+    pemuda_dan_krisis_jaman.set_lent(True)
+    # print(pemuda_dan_krisis_jaman.__is_lent)
+
+    pemuda_dan_krisis_jaman.set_lent(True)
+    print(pemuda_dan_krisis_jaman.get_lent())
+
+    pemuda_dan_krisis_jaman.set_lent("beneri dipinjam michael")
+    # print(pemuda_dan_krisis_jaman.is_lent)
+
+    np_shelve = BookShelve(10, "001")
+    initial_capacity = np_shelve.get_capacity()
+
+    print(initial_capacity)
+    print(np_shelve.get_capacity())
