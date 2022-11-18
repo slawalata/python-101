@@ -3,16 +3,17 @@ import boto3, botocore
 
 app = Flask(__name__)
 
-S3_BUCKET = "BUCKET_BUCKET"
+S3_BUCKET = "myapp.upload"
 app.config['S3_BUCKET'] = S3_BUCKET
-app.config['S3_KEY'] = "KEY"
-app.config['S3_SECRET'] = "SECRET"
-app.config['S3_LOCATION'] = f'http://{S3_BUCKET}.s3.amazonaws.com/'
+app.config['S3_KEY'] = "AKIAX7KSC7IQ4IFHIT4B"
+app.config['S3_SECRET'] = "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"
+app.config['S3_LOCATION'] = f'http://s3.amazonaws.com.{S3_BUCKET}/'
 
 s3 = boto3.client(
     "s3",
     aws_access_key_id=app.config['S3_KEY'],
-    aws_secret_access_key=app.config['S3_SECRET']
+    aws_secret_access_key=app.config['S3_SECRET'],
+    # aws_session_token=app.config['S3_TOKEN']
 )
 
 
@@ -20,7 +21,7 @@ s3 = boto3.client(
 def index():
     return render_template(
         's3_index.html',
-        imgs_folder="https://s3.amazonaws.com/labdemo.myapps.imgs"
+        imgs_folder="https://s3.amazonaws.com/myapp.imgs"
     )
 
 
@@ -36,6 +37,7 @@ def success():
         # f.save(f.filename)
 
         file_url = upload_file_to_s3(f, S3_BUCKET)
+        # file_url = "None"
 
         return render_template(
             "success.html",
